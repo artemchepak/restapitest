@@ -41,25 +41,23 @@ class CarController extends Controller
     }
 
     /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @param Request $request
+     * @param $id
+     * @return mixed
      */
     public function update(Request $request, $id)
     {
-        //
+        $car = Car::find($id);
+        $car->update($request->all());
+        return $car;
     }
 
     /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @param $id
+     * @return int
      */
     public function destroy($id)
     {
-        //
+        return Car::destroy($id);
     }
 }
