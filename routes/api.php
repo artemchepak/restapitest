@@ -19,15 +19,15 @@ use App\Http\Controllers\CarController;
 
 //Route::resource('cars', CarController::class);
 Route::post('/register', [AuthController::class, 'register']);
+Route::post('/login', [AuthController::class, 'login']);
 Route::get('/cars/search/{name}', [CarController::class, 'search']);
 Route::get('/cars', [CarController::class, 'index']);
 Route::get('/cars/{id}', [CarController::class, 'show']);
-
-
 
 
 Route::group(['middleware' => ['auth:sanctum']], function () {
     Route::post('/cars', [CarController::class, 'store']);
     Route::put('/cars/{id}', [CarController::class, 'update']);
     Route::delete('/cars/{id}', [CarController::class, 'destroy']);
+    Route::post('/logout', [AuthController::class, 'logout']);
 });
