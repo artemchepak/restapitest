@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AuthController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CarController;
@@ -17,9 +18,11 @@ use App\Http\Controllers\CarController;
 */
 
 //Route::resource('cars', CarController::class);
+Route::post('/register', [AuthController::class, 'register']);
 Route::get('/cars/search/{name}', [CarController::class, 'search']);
 Route::get('/cars', [CarController::class, 'index']);
 Route::get('/cars/{id}', [CarController::class, 'show']);
+
 
 
 
