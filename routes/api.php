@@ -17,8 +17,7 @@ use App\Http\Controllers\CarController;
 */
 
 Route::resource('cars', CarController::class);
-
-//Route::get('/cars', [CarController::class, 'index']);
+Route::get('/cars/search/{name}', [CarController::class, 'search']);
 //Route::post('/cars', [CarController::class, 'store']);
 //Route::get('/cars/{id}', [CarController::class, 'show']);
 

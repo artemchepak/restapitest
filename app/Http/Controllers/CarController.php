@@ -60,4 +60,14 @@ class CarController extends Controller
     {
         return Car::destroy($id);
     }
+
+    /**
+     * *Search for name
+     * @param $name
+     * @return mixed
+     */
+    public function search($name)
+    {
+        return Car::where('model', 'like', '%'.$name.'%')->get();
+    }
 }
